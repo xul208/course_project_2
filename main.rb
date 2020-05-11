@@ -20,6 +20,9 @@ end
 
 # Get area code based on given hash
 def get_area_code(somehash, key)
+  if !somehash.has_key?(key)
+    return 'The city you entered is not in the dictionary!'
+  end
   return somehash[key]
 end
 
