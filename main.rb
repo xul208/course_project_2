@@ -14,18 +14,23 @@ dial_book = {
 }
 
 # Get city names from the hash
-def get_city_names(somehash);
-
+def get_city_names(somehash)
+  return somehash.keys.map(&:capitalize)
 end
 
 # Get area code based on given hash
 def get_area_code(somehash, key)
+  return somehash[key]
 end
 
 loop do
   puts 'Do you want to lookup an area code based on a city name? (Y/N)'
   answer = gets.chomp.downcase
   break if answer != 'y'
+  
+  puts 'Which city do you want the area code for?'
+  puts get_city_names(dial_book)
 
-  puts 'Which city do you want the area code for'
+  city = gets.chomp.downcase
+  puts get_area_code(dial_book, city)
 end
